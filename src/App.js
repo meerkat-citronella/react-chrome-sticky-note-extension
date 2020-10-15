@@ -4,10 +4,17 @@ import "./App.css";
 
 // const sampleNotesShape = [{ x: 98, y: 836, note: "some note text" }];
 
-const StyledTextArea = styled.textarea`
-  height: 200px;
-  width: 200px;
-  border: none;
+const Container = styled.div`
+  border: 1px solid grey;
+  position: absolute;
+
+  top: ${(props) => props.y + "px"};
+  left: ${(props) => props.x + "px"};
+`;
+
+const Header = styled.div`
+  height: 20px;
+  background: linear-gradient(to right, #b3d279, #bf7340);
 `;
 
 const StyledButton = styled.button`
@@ -17,16 +24,12 @@ const StyledButton = styled.button`
   float: right;
 `;
 
-const Container = styled.div`
-  border: 1px solid grey;
-  position: absolute;
-  top: ${(props) => props.y + "px"};
-  left: ${(props) => props.x + "px"};
-`;
-
-const Header = styled.div`
-  height: 20px;
-  background: linear-gradient(to right, #b3d279, #bf7340);
+const StyledTextArea = styled.textarea`
+  color: hsla(0, 0%, 100%, 0.88);
+  height: 200px;
+  width: 200px;
+  border: none;
+  background-color: hsla(0, 0%, 100%, 0.2);
 `;
 
 const App = () => {
