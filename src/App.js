@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 
+import { ShadowRoot } from "./ShadowRoot";
+
 // const sampleNotesShape = [{ x: 98, y: 836, note: "some note text" }];
 
 const localMode = process.env.REACT_APP_LOCAL === "true";
@@ -12,7 +14,6 @@ const Container = styled.div`
   border: 1px solid grey;
   position: absolute;
   background: white;
-
   top: ${(props) => props.y + "px"};
   left: ${(props) => props.x + "px"};
 `;
@@ -99,15 +100,17 @@ const App = () => {
         };
 
         return (
-          <Container x={note.x} y={note.y} className="react-sticky-note">
-            <Header>
-              <StyledButton onClick={handleDelete}>X</StyledButton>
-            </Header>
-            <StyledTextArea
-              onChange={handleChange}
-              value={note.note ? note.note : ""}
-            />
-          </Container>
+          <ShadowRoot>
+            <Container x={note.x} y={note.y} className="react-sticky-note">
+              <Header>
+                <StyledButton onClick={handleDelete}>X</StyledButton>
+              </Header>
+              <StyledTextArea
+                onChange={handleChange}
+                value={note.note ? note.note : ""}
+              />
+            </Container>
+          </ShadowRoot>
         );
       })}
     </div>
