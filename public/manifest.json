@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "manifest_version": 2,
   "description": "Lets you annotate web pages and persists those annotations across page visits.",
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

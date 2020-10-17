@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 const insertionPoint = document.createElement("div");
 insertionPoint.id = "insertion-point";
-document.body.append(insertionPoint);
+document.body.parentNode.insertBefore(insertionPoint, document.body);
 
 ReactDOM.render(
   <React.StrictMode>
