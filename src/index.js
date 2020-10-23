@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import StickyNotes from "./StickyNotes";
 import * as serviceWorker from "./serviceWorker";
 
 const insertionPoint = document.createElement("div");
@@ -10,7 +10,7 @@ document.body.parentNode.insertBefore(insertionPoint, document.body);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StickyNotes />
   </React.StrictMode>,
   document.getElementById("insertion-point")
 );
