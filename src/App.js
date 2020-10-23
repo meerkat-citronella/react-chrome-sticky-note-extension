@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 
+import { localMode } from "./constants";
 import { ShadowRoot } from "./ShadowRoot";
+import { PopupComponent } from "./PopupComponent";
 
 // const sampleNotesShape = [{ x: 98, y: 836, note: "some note text" }];
-
-const localMode = process.env.REACT_APP_LOCAL === "true";
 
 const Container = styled.div`
   z-index: 2;
