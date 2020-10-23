@@ -11,8 +11,6 @@ const ListNoMarker = styled.ul`
   padding: 0;
 `;
 
-const UrlLi = styled.li``;
-
 const UrlP = styled.p`
   background: papayawhip;
   margin: 0.5em;
@@ -44,7 +42,7 @@ const UrlEntry = ({ entry }) => {
 export const PopupComponent = () => {
   const [notes, setNotes] = useState([]);
 
-  // get notes if they're there
+  // get notes to display in popup.html
   useEffect(() => {
     if (!localMode) {
       chrome.storage.local.get((items) => {
