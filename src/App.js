@@ -3,11 +3,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 
+import { localMode } from "./constants";
 import { ShadowRoot } from "./ShadowRoot";
 
 // const sampleNotesShape = [{ x: 98, y: 836, note: "some note text" }];
-
-const localMode = process.env.REACT_APP_LOCAL === "true";
 
 const Container = styled.div`
   z-index: 2;
@@ -20,7 +19,7 @@ const Container = styled.div`
 
 const Header = styled.div`
   height: 20px;
-  background: linear-gradient(to right, #b3d279, #bf7340);
+  background-color: papayawhip;
 `;
 
 const StyledButton = styled.button`
@@ -57,9 +56,7 @@ const App = () => {
   useEffect(() => {
     if (!localMode) {
       chrome.storage.local.get(url, (items) => {
-        if (items[url]) {
-          setNotes(items[url]);
-        }
+        items[url] && setNotes(items[url]);
       });
     }
   }, []);
