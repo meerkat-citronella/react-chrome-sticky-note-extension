@@ -6,26 +6,28 @@ import * as serviceWorker from "./serviceWorker";
 
 import { PopupComponent } from "./PopupComponent";
 
+const popupRoot = document.getElementById("popup-root");
+
 const insertionPoint = document.createElement("div");
 insertionPoint.id = "insertion-point";
 document.body.parentNode.insertBefore(insertionPoint, document.body);
 
-const docRoot = document.getElementById("root");
+// StickyNotes / content script
+!popupRoot &&
+  ReactDOM.render(
+    <React.StrictMode>
+      <StickyNotes />
+    </React.StrictMode>,
+    document.getElementById("insertion-point")
+  );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <StickyNotes />
-  </React.StrictMode>,
-  document.getElementById("insertion-point")
-);
-
-// For the popup
-docRoot && // to suppress minified react error 200
+// PopupComponent / popup.html
+popupRoot && // to suppress minified react error 200
   ReactDOM.render(
     <React.Fragment>
       <PopupComponent />
     </React.Fragment>,
-    document.getElementById("root")
+    popupRoot
   );
 
 // If you want your app to work offline and load faster, you can change

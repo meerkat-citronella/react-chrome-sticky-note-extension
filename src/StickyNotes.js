@@ -37,7 +37,7 @@ const StyledTextArea = styled.textarea`
   background-color: hsla(0, 0%, 100%, 0.2);
 `;
 
-const App = () => {
+const StickyNotes = () => {
   const [notes, setNotes] = useState([]);
   const url = window.location.href;
 
@@ -114,4 +114,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default StickyNotes;
