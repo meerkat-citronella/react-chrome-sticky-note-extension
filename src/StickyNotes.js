@@ -90,11 +90,14 @@ const StickyNotes = () => {
 
         const handleDelete = () => {
           setNotes((prevNotes) =>
-            prevNotes.reduce(
-              (acc, cv) =>
-                cv.x === note.x && cv.y === note.y ? acc : acc.push(cv) && acc,
-              []
-            )
+            prevNotes.reduce((acc, cv) => {
+              if (cv.x === note.x && cv.y === note.y) {
+                return acc;
+              } else {
+                acc.push(cv);
+                return acc;
+              }
+            }, [])
           );
         };
 
