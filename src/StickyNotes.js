@@ -76,13 +76,15 @@ const StickyNotes = () => {
         const handleChange = (e) => {
           const editedText = e.target.value;
           setNotes((prevNotes) =>
-            prevNotes.reduce(
-              (acc, cv) =>
-                cv.x === note.x && cv.y === note.y
-                  ? acc.push({ ...cv, note: editedText }) && acc
-                  : acc.push(cv) && acc,
-              []
-            )
+            prevNotes.reduce((acc, cv) => {
+              if (cv.x === note.x && cv.y === note.y) {
+                acc.push({ ...cv, note: editedText });
+                return acc;
+              } else {
+                acc.push(cv);
+                return acc;
+              }
+            }, [])
           );
         };
 
